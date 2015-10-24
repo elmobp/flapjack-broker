@@ -1,4 +1,4 @@
-package flapjack
+package flapjackbroker
 
 import "errors"
 
@@ -11,6 +11,7 @@ type Event struct {
 	State   string `json:"state"`
 	Summary string `json:"summary"`
 	Time    int64  `json:"time"`
+        Tags []interface{}  `json:"tags"`
 }
 
 // IsValid performs basic validations on the event data.

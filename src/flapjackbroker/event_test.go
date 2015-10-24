@@ -1,4 +1,4 @@
-package flapjack
+package flapjackbroker
 
 import "testing"
 
