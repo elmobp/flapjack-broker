@@ -12,6 +12,7 @@ type Event struct {
 	Summary string `json:"summary"`
 	Time    int64  `json:"time"`
         Tags []interface{}  `json:"tags"`
+        FailureDelay int `json:"initial_failure_delay"`
 }
 
 // IsValid performs basic validations on the event data.
