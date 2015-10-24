@@ -1,7 +1,7 @@
 # flapjack-broker
 Flapjack HTTP Broker, this currently supports notifications from New Relic Alerts (Beta), Flapjack and Cloudwatch.
 
-Each endpoint is controlled with its own martini router, should you wish to add a new broker modify libexec/httpbroker.go and add a martinin router then create the package and functions inside of src/flapjackfeeder/. A good starting point for a new hok would be the most simple feeder which is src/flapjackfeeder/flapjack.go
+Each endpoint is controlled with its own martini router, should you wish to add a new broker modify libexec/httpbroker.go and add a martini router then create the package and functions inside of src/flapjackfeeder/. A good starting point for a new hok would be the most simple feeder which is src/flapjackfeeder/flapjack.go
 
 If the data type is different to those surrently supported make sure that you add the JSON struct to src/flapjackconfig/config.go
 
