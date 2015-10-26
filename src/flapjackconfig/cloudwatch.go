@@ -26,7 +26,7 @@ type SNSNotification struct {
 }
 type CWAlarm struct {
 	AWSAccountID     string      `json:"AWSAccountId"`
-	AlarmDescription interface{} `json:"AlarmDescription"`
+	AlarmDescription string `json:"AlarmDescription"`
 	AlarmName        string      `json:"AlarmName"`
 	NewStateReason   string      `json:"NewStateReason"`
 	NewStateValue    string      `json:"NewStateValue"`

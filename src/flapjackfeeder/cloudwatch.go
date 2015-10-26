@@ -57,10 +57,13 @@ func CreateCloudwatchState(updates chan flapjackconfig.State, w http.ResponseWri
 	default:
 		event_state = "ok"
 	}
+	s := strings.Split(cw_alarm.AlarmDescription, ":")
+        tmpclient := fmt.Sprint(s[0], "-bpdyn")
+	tmpdata := fmt.Sprint(s[1], " ", cw_alarm.Trigger.MetricName)
 	state = flapjackconfig.State{
 		flapjackbroker.Event{
-			Entity:  cw_alarm.AlarmName,
-			Check:   cw_alarm.Trigger.MetricName,
+			Entity:  tmpclient,
+			Check:   tmpdata,
 			State:   event_state,
 			Summary: cw_alarm.NewStateReason,
 		},

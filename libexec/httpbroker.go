@@ -48,7 +48,7 @@ func submitCachedState(states map[string]flapjackconfig.State, config Config) {
 				Tags:    broker,
 				FailureDelay: 0,
 			}
-			
+			delete(states,id)
 			if config.Debug {
 				log.Printf("Sending event data for %s\n", id)
 			}

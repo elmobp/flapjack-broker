@@ -30,9 +30,10 @@ func CreateFlapjackState(updates chan flapjackconfig.State, w http.ResponseWrite
 		fmt.Fprintf(w, message, err)
 		return
 	}
+        tmpclient := fmt.Sprint(input_state.Entity, "-bpdyn")
 	state = flapjackconfig.State{
 		flapjackbroker.Event{
-			Entity: input_state.Entity,
+			Entity: tmpclient,
 			Check:  input_state.Check,
 			// Type:    "service", // @TODO: Make this magic
 			State:   input_state.State,

@@ -41,9 +41,10 @@ func CreateNewRelicState(updates chan flapjackconfig.State, w http.ResponseWrite
 		event_state = "ok"
 	}
 	new_details := fmt.Sprint("New Relic Alert Received: ", NRAlarm.Details, " Ack the alert using the following URL: ", NRAlarm.IncidentAcknowledgeURL)
+	tmpclient := fmt.Sprint(NRAlarm.PolicyName, "-bpdyn")
 	state = flapjackconfig.State{
 		flapjackbroker.Event{
-			Entity: NRAlarm.PolicyName,
+			Entity: tmpclient,
 			Check:  NRAlarm.ConditionName,
 			// Type:    "service", // @TODO: Make this magic
 			State:   event_state,
