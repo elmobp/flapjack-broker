@@ -126,5 +126,15 @@ func main() {
 			return data
 		})
 	})
+        // Handle Azure Alerts
+        m.Group("/azure-alert", func(r martini.Router) {
+                r.Post("", func(res http.ResponseWriter, req *http.Request) {
+                        flapjackfeeder.CreateAzureState(updates, res, req)
+                })
+                r.Get("", func() []byte {
+                        data, _ := json.Marshal(state)
+                        return data
+                })
+        })
 	log.Fatal(http.ListenAndServe(config.Port, m))
 }
